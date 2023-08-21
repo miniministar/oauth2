@@ -5,5 +5,19 @@ spring:
         registration:
           github:
             clientId: 3a75911a51ea57b24de7
-            clientSecret: b1a780055b677acbb5cf622d39d345e7335d5e28
-# ...
+            clientSecret: clientSecret
+          gitee:
+            provider: gitee
+            clientId: d1717c8087cba882392fa65af9c425ffc5209348790e07064929aea6d2147bb0
+            clientSecret: clientSecret
+            redirect-uri: http://localhost:8080/login/oauth2/code/gitee
+            authorization-grant-type: "authorization_code"
+            client-name: gitee
+            scope:
+              - user_info
+        provider:
+          gitee:
+            authorization-uri: https://gitee.com/oauth/authorize
+            token-uri: https://gitee.com/oauth/token
+            user-info-uri: https://gitee.com/api/v5/user
+            user-name-attribute: "name"
