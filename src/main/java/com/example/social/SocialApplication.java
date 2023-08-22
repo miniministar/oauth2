@@ -50,6 +50,8 @@ public class SocialApplication extends WebSecurityConfigurerAdapter {
         SpringApplication.run(SocialApplication.class, args);
     }
 
+    @Autowired
+    private LoginFailureHandler failureHandler;
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
@@ -69,7 +71,7 @@ public class SocialApplication extends WebSecurityConfigurerAdapter {
                 .oauth2Login(o -> o
                         .failureHandler((request, response, exception) -> {
                             request.getSession().setAttribute("error.message", exception.getMessage());
-//                            handler.onAuthenticationFailure(request, response, exception);
+                            failureHandler.onAuthenticationFailure(request, response, exception);
                         })
                 )
         ;
