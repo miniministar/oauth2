@@ -5,11 +5,11 @@ spring:
         registration:
           github:
             clientId: 3a75911a51ea57b24de7
-            clientSecret: clientSecret
+            clientSecret: 71fc1504a307d83ecc83e38f407b268f7fd8b96c
           gitee:
             provider: gitee
             clientId: d1717c8087cba882392fa65af9c425ffc5209348790e07064929aea6d2147bb0
-            clientSecret: clientSecret
+            clientSecret: 4175f3b106ac33ed9ff3c060c5a866b120f0bf3692da947763cc96c8894441cd
             redirect-uri: http://localhost:8080/login/oauth2/code/gitee
             authorization-grant-type: "authorization_code"
             client-name: gitee

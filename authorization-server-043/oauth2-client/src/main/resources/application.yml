@@ -1,0 +1,35 @@
+server:
+  port: 7000
+spring:
+  application:
+    # 应用名称
+    name: oauth2-client
+  security:
+    oauth2:
+      client:
+        registration:
+          # 客户端：与注册时保持一致
+          myClient:
+            client-id: my_client
+            client-secret: 123456
+            #client-name: my_client_name
+            scope: read,write
+            authorization-grant-type: authorization_code
+            provider: myOauth2
+            redirect-uri: '{baseUrl}/{action}/oauth2/code/{registrationId}'
+            # 认证方法
+            client-authentication-method: client_secret_basic
+        provider:
+          # 服务提供地址
+          myOauth2:
+            #issuer-uri: http://localhost:9000
+            # issuer-uri 可以简化下面的配置
+            # 请求授权码地址
+            authorization-uri: http://localhost:9000/oauth2/authorize
+            # 请求令牌地址
+            token-uri: http://localhost:9000/oauth2/token
+            # 用户资源地址
+            user-info-uri: http://localhost:9000/oauth2/user
+            # 用户资源返回中的一个属性名
+            user-name-attribute: name
+            user-info-authentication-method: GET

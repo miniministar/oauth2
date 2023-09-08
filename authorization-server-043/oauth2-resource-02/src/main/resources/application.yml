@@ -1,0 +1,16 @@
+server:
+  port: 8001
+spring:
+  application:
+    name: oauth2-resource-02
+#自定义 jwt 配置（校验jwt）
+jwt:
+  cert-info:
+    # 公钥证书存放位置
+    public-key-location: myjks.cer
+  claims:
+    #令牌的鉴发方：即授权服务器的地址
+    issuer: http://localhost:9000
+    # 令牌有效时间（单位：秒）；设为0时，和令牌实际时间一致。
+    #  如果大于0，就是在原来过期时间的基础再加上这个值
+    #expires-at: 0

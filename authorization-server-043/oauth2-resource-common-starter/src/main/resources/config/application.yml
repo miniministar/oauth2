@@ -1,0 +1,25 @@
+#自定义 jwt 配置（校验jwt）
+jwt:
+  cert-info:
+    # 公钥证书存放位置
+    public-key-location: myjks.cer
+  claims:
+    #令牌的鉴发方：即授权服务器的地址
+    issuer: http://localhost:9000
+    # 令牌有效时间（单位：秒）；设为0时，和令牌实际时间一致。
+    #  如果大于0，就是在原来过期时间的基础再加上这个值
+    #expires-at: 0
+# 自定义权限配置
+resource-auth:
+  # 权限
+  authority:
+    # 角色名称；不用加ROlE_，提取用户角色权限时，自动加
+    roles:
+    # 授权范围；不用加SCOPE_，保持与认证中心中定义的一致即可；
+    # 后台自动加 SCOPE_
+    scopes:
+      - client_pc
+      - read
+      - micro_service
+    # 细粒度权限
+    auths:
